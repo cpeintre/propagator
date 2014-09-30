@@ -241,6 +241,12 @@ class Propagator {
 		        'user'        => $this->get_auth_user(),
     		));
     		
+    		$email_notification_user=$this->get_auth_user();
+                $email_notification_desc=$data['script_sql_code'];
+                $email_notification_address=$this->conf['notification_email'];
+
+                mail($email_notification_address, "[Orchestrator] New Script Submitted by $email_notification_user", "$email_notification_desc");
+    		
     		return $this->redirect("approve_script", "propagate_script_id=" . $propagate_script_id);
     	}
     	catch (Exception $e)
