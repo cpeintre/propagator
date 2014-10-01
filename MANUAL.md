@@ -868,6 +868,34 @@ was available/applicable to the event.
 | comment_mark | The mark left on the comment on the propagator script that is related to the event (only for comment_script events) |
 | instances    | An associative array of each environment that was affected by the event. Each instance in the array can have the following keys that further describe the status of the environment after the event has occurred: "environment", "deployment_status", "marked_status", "deployment_type", "processing_start_time", "processing_end_time", "last_message" |
 
+##### Event array example:
+```
+Event Object
+(
+    [name] => execute_script
+    [script_id] =>
+    [role] => main
+    [schema] => test
+    [user] => cepe
+    [description] => test
+    [comment] =>
+    [comment_mark] =>
+    [instances] => Array
+        (
+            [production] => Array
+                (
+                    [deployment_status] => passed
+                    [marked_status] =>
+                    [deployment_type] => manual
+                    [environment] => production
+                    [processing_start_time] => 2014-10-01 16:31:14
+                    [processing_end_time] => 2014-10-01 16:31:14
+                    [last_message] => Script executed successfully
+                )
+        )
+    [propagate:Event:private] => 1
+)
+```
 
 Listeners live in the listeners directory that is apart of propagator's file tree. Or
 you can change the location of the listeners directory by changing the value of 
